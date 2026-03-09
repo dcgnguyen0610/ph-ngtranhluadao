@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Chống Lừa 24/7 — Trang phòng chống lừa đảo</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome for icons -->
+  <script src="https://kit.fontawesome.com/yourkitid.js" crossorigin="anonymous"></script>
+
+  <style>
+    :root{
+      --bg:#ffffff;
+      --primary:#0B81FF;
+      --accent:#FF6B35;
+      --warn:#FFC107;
+      --safe:#28C76F;
+      --muted:#6b7280;
+      --radius:10px;
+      --maxw:1100px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,Arial,sans-serif;
+      background:var(--bg);
+      color:#111827;
+      -webkit-font-smoothing:antialiased;
+    }
+    .container{max-width:var(--maxw);margin:0 auto;padding:24px;}
+    header.site-header{
+      display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 0;
+    }
+    .brand{display:flex;align-items:center;gap:12px;}
+    .logo{
+      width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,var(--primary),#7AD1FF);
+      display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:20px;
+    }
+    nav.main-nav a{margin:0 10px;color:var(--muted);text-decoration:none;font-weight:600}
+    .actions{display:flex;align-items:center;gap:12px}
+    .btn{
+      padding:10px 14px;border-radius:10px;border:0;cursor:pointer;font-weight:600;
+    }
+    .btn-primary{background:var(--primary);color:white}
+    .btn-cta{background:var(--accent);color:white}
+
+    /* Search check */
+    .check-box{display:flex;gap:8px;align-items:center}
+    .check-box input[type="text"]{
+      padding:10px 12px;border:1px solid #e6e9ef;border-radius:12px;width:320px;
+    }
+
+    /* Hero */
+    .hero{display:flex;gap:24px;align-items:center;padding:28px 0}
+    .hero .left{flex:1}
+    .hero h1{font-size:28px;margin:0 0 8px 0}
+    .hero p{margin:0;color:var(--muted)}
+    .hero .hero-ill{width:320px;height:220px;border-radius:14px;background:linear-gradient(180deg,#f0f9ff,#fff);display:flex;align-items:center;justify-content:center;color:var(--primary)}
+
+    /* Cards grid */
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:20px}
+    .card{background:white;border-radius:12px;padding:14px;box-shadow:0 6px 18px rgba(15,23,42,0.06)}
+    .card h3{margin:0 0 8px 0}
+    .badge{display:inline-block;padding:6px 8px;border-radius:999px;font-weight:700;font-size:13px}
+
+    /* Alerts list */
+    .alerts{display:flex;flex-direction:column;gap:10px}
+    .alert-item{display:flex;justify-content:space-between;gap:12px;padding:12px;border-radius:10px;border:1px solid #f1f5f9;align-items:center}
+    .alert-left{display:flex;gap:12px;align-items:center}
+    .alert-dot{width:12px;height:12px;border-radius:50%}
+    .alert-info small{color:var(--muted)}
+
+    /* Tips list */
+    .tips{display:flex;flex-direction:column;gap:8px}
+    .tip{display:flex;gap:12px;align-items:flex-start}
+    .tip .ic{width:36px;height:36;border-radius:8px;background:#f3f4f6;display:flex;align-items:center;justify-content:center}
+
+    /* Stats */
+    .stats{display:flex;gap:12px}
+    .stat{flex:1;padding:14px;border-radius:12px;background:linear-gradient(180deg,#fff,#fbfcff);text-align:center}
+
+    /* Form */
+    form.report{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+    form.report input, form.report textarea, form.report select{padding:10px;border-radius:10px;border:1px solid #e6e9ef}
+    form.report textarea{grid-column:1/3;min-height:98px;resize:vertical}
+    .footer{margin-top:36px;padding-top:24px;border-top:1px solid #eef2f7;color:var(--muted);text-align:center}
+
+    /* responsive */
+    @media (max-width:900px){
+      .grid{grid-template-columns:repeat(2,1fr)}
+      .hero{flex-direction:column;align-items:flex-start}
+      form.report{grid-template-columns:1fr}
+    }
+    @media (max-width:560px){
+      .grid{grid-template-columns:1fr}
+      nav.main-nav{display:none}
+      .check-box input[type="text"]{width:180px}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header class="site-header">
+      <div class="brand">
+        <div class="logo">CL</div>
+        <div>
+          <div style="font-weight:700">Chống Lừa 24/7</div>
+          <div style="font-size:12px;color:var(--muted)">Thông tin & báo cáo lừa đảo</div>
+        </div>
+      </div>
+
+      <nav class="main-nav" aria-label="Chính">
+        <a href="#home">Trang chủ</a>
+        <a href="#alerts">Cảnh báo</a>
+        <a href="#scams">Chiêu lừa</a>
+        <a href="#tips">Tips</a>
+        <a href="#report">Báo cáo</a>
+      </nav>
+
+      <div class="actions">
+        <div class="check-box" role="search" aria-label="Kiểm tra URL hoặc số">
+          <input type="text" id="checkInput" placeholder="Dán link / số điện thoại nghi vấn..." aria-label="Kiểm tra URL">
+          <button class="btn btn-primary" onclick="alert('Kiểm tra tạm: xây thêm backend')">Kiểm tra</button>
+        </div>
+        <button class="btn btn-cta" onclick="document.getElementById('report').scrollIntoView()">Báo cáo ngay</button>
+      </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero" id="home">
+      <div class="left">
+        <h1>Giữ tiền trong túi — tránh bị lừa 💪</h1>
+        <p>Trang phòng chống lừa đảo: cập nhật cảnh báo, hướng dẫn nhận biết, và công cụ báo cáo nhanh.</p>
+        <div style="margin-top:12px">
+          <button class="btn btn-primary">Kiểm tra link</button>
+          <button class="btn" style="background:#f3f4f6;border-radius:10px">Tìm hiểu thêm</button>
+        </div>
+      </div>
+      <div class="hero-ill" aria-hidden="true">
+        <!-- placeholder illustration -->
+        <div style="text-align:center">
+          <i class="fa-solid fa-shield-halved" style="font-size:44px;color:var(--primary)"></i>
+          <div style="color:var(--muted);font-size:12px;margin-top:8px">Hình minh họa</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Alerts & Cards -->
+    <section style="margin-top:22px">
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <h2 id="alerts">Cảnh báo mới nhất</h2>
+        <small style="color:var(--muted)">Cập nhật: <strong>ngay lúc đăng</strong></small>
+      </div>
+
+      <div class="alerts" style="margin-top:12px">
+        <div class="alert-item">
+          <div class="alert-left">
+            <div class="alert-dot" style="background:var(--warn)"></div>
+            <div class="alert-info">
+              <div style="font-weight:700">Giả mạo ngân hàng — Yêu cầu OTP</div>
+              <small>Hà Nội • 2 giờ trước — Link giả mạo kèm yêu cầu OTP</small>
+            </div>
+          </div>
+          <div><button class="btn" onclick="alert('Xem chi tiết')">Xem</button></div>
+        </div>
+
+        <div class="alert-item">
+          <div class="alert-left">
+            <div class="alert-dot" style="background:var(--accent)"></div>
+            <div class="alert-info">
+              <div style="font-weight:700">Lừa việc làm — Yêu cầu đặt cọc</div>
+              <small>Toàn quốc • 1 ngày trước</small>
+            </div>
+          </div>
+          <div><button class="btn" onclick="alert('Xem chi tiết')">Xem</button></div>
+        </div>
+      </div>
+
+      <!-- Grid: scam cards, tips, stats -->
+      <div class="grid" style="margin-top:18px">
+        <div class="card">
+          <h3 id="scams">Chiêu lừa phổ biến</h3>
+          <p style="color:var(--muted);margin:6px 0 12px 0">Danh sách ngắn và dấu hiệu nhận biết.</p>
+          <ul style="padding-left:18px;margin:0;color:var(--muted)">
+            <li><strong>Giả mạo ngân hàng</strong> — Yêu cầu OTP / link lạ</li>
+            <li><strong>Lừa mua bán</strong> — Chuyển trước, mất liên lạc</li>
+            <li><strong>Lừa tuyển dụng</strong> — Đòi tiền đặt cọc</li>
+          </ul>
+          <div style="margin-top:12px"><button class="btn btn-primary">Xem tất cả</button></div>
+        </div>
+
+        <div class="card">
+          <h3 id="tips">Tips phòng tránh</h3>
+          <div class="tips" style="margin-top:8px">
+            <div class="tip"><div class="ic"><i class="fa-regular fa-square-check"></i></div><div>Không cung cấp OTP cho bất kỳ ai.</div></div>
+            <div class="tip"><div class="ic"><i class="fa-solid fa-link"></i></div><div>Kiểm tra URL: https, tên miền chính thức.</div></div>
+            <div class="tip"><div class="ic"><i class="fa-solid fa-phone"></i></div><div>Gọi hotline chính thức để xác thực.</div></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Thống kê</h3>
+          <div class="stats" style="margin-top:8px">
+            <div class="stat">
+              <div style="font-size:18px;font-weight:700">1,245</div>
+              <div style="font-size:12px;color:var(--muted)">Vụ báo cáo (năm nay)</div>
+            </div>
+            <div class="stat">
+              <div style="font-size:18px;font-weight:700">₫12.4B</div>
+              <div style="font-size:12px;color:var(--muted)">Thiệt hại ước tính</div>
+            </div>
+            <div class="stat">
+              <div style="font-size:18px;font-weight:700">84%</div>
+              <div style="font-size:12px;color:var(--muted)">Tỉ lệ vụ được xác minh</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Report form -->
+    <section id="report" style="margin-top:26px">
+      <h2>Gửi báo cáo vụ lừa đảo</h2>
+      <form class="report" onsubmit="event.preventDefault(); alert('Cảm ơn — báo cáo đã gửi (demo)')">
+        <input type="text" placeholder="Tên (tùy chọn)" />
+        <select>
+          <option>Chọn loại vụ</option>
+          <option>Giả mạo ngân hàng</option>
+          <option>Lừa mua bán</option>
+          <option>Lừa tuyển dụng</option>
+          <option>Phishing</option>
+        </select>
+        <input type="text" placeholder="URL / Số điện thoại / Tài khoản nghi vấn" />
+        <input type="text" placeholder="Khu vực (tỉnh/thành)"/>
+        <textarea placeholder="Mô tả chi tiết (thời gian, nội dung, chứng cứ)"></textarea>
+        <div style="grid-column:1/3;display:flex;gap:10px;align-items:center">
+          <label style="display:flex;gap:8px;align-items:center"><input type="checkbox" required> Tôi đồng ý chia sẻ thông tin để xác minh</label>
+          <button class="btn btn-cta" style="margin-left:auto" type="submit">Gửi báo cáo</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+      <div style="margin-top:18px">
+        <div style="display:flex;justify-content:center;gap:12px;margin-bottom:8px">
+          <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+          <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          <a href="#" aria-label="Telegram"><i class="fa-brands fa-telegram"></i></a>
+        </div>
+        <div style="font-size:13px">Email: <a href="mailto:contact@chonglua.example">contact@chonglua.example</a> • Hotline: 1900-XXX-XXX</div>
+        <div style="margin-top:10px;font-size:13px">Chính sách | Điều khoản | FAQ</div>
+
+        <div style="margin-top:14px;font-weight:700">Sản phẩm của nhóm 8</div>
+        <div style="margin-top:10px;font-size:12px;color:var(--muted)">© 2026 Chống Lừa 24/7. Thông tin trên trang mang tính chất tham khảo.</div>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
